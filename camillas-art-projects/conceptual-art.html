@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Camilla's Definition of Conceptual Art</title>
+<style>
+    div.a {
+        position: fixed;
+        //border: groove 10px #9b9bd5;
+    }
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+            $('.a').click(function(){
+            var newq = makeNewPosition($('.a').height(),$('.a').width())
+            $('.a')
+                .animate({ top: newq[0], left: newq[1]},
+                    500,
+                    function(){});
+        });
+        $('.a').css({ top: $(window).height()/2 - $('.a').height()/2, left: $(window).width()/2 - $('.a').width()/2   });
+    });
+
+function makeNewPosition(div_height,div_width){
+    
+    // Get viewport dimensions (remove the dimension of the div)
+    var h = $(window).height() - div_height;
+    var w = $(window).width() - div_width;
+
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+    
+    return [nh,nw];    
+    
+}
+
+</script>
+<head>
+<body>
+
+    <div class='a'><a href="javascript:void(0)">To access camilla's definition of conceptual art click here</a></div>
+    
+
+</body>
+</html>
