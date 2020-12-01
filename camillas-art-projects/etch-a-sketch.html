@@ -7,7 +7,7 @@
         currY = 0,
         dot_flag = false;
 
-    var x = "black",
+    var x = "#6a6868"
         y = 2;
 
     function init() {
@@ -25,35 +25,6 @@
         canvas.addEventListener("mouseout", function (e) {
             findxy('out', e)
         }, false);
-    }
-
-    function color(obj) {
-        switch (obj.id) {
-            case "green":
-                x = "green";
-                break;
-            case "blue":
-                x = "blue";
-                break;
-            case "red":
-                x = "red";
-                break;
-            case "yellow":
-                x = "yellow";
-                break;
-            case "orange":
-                x = "orange";
-                break;
-            case "black":
-                x = "black";
-                break;
-            case "white":
-                x = "white";
-                break;
-        }
-        if (x == "white") y = 14;
-        else y = 2;
-
     }
 
     function draw() {
@@ -112,11 +83,11 @@
         }
     }
     </script>
-    <body  style="text-align: center;" onload="init()">
-        <img src="eas.jpg" alt="" style="z-index: 1;position: absolute">
-            <div style="display:inline-block;width:auto; margin: 0 auto; background: black; position:relative; border:5px solid black; border-radius: 10px; box-shadow: 0 5px 50px #333">
-                <canvas id="can" width="270" height="190" style="position: relative; border:2px solid #a76934;z-index: 20; margin-left: 160px;margin-top: 127px"></canvas>
-            </div>
+    <body onload="init()">
+      <div style="width:100%; display: flex;justify-content: center;">
+        <img src="eas.jpg" alt="" style="z-index: 0;width: 800px; position: absolute">
+                <canvas id="can" width="365" height="250" style="position: relative; border:2px solid #a76934; margin-top: 174px"></canvas>
         </img>
+      </div>
     </body>
  </html>
