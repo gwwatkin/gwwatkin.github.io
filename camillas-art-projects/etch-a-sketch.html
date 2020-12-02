@@ -1,5 +1,17 @@
  <html>
+ <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Camilla's Etch a Sketch Fun</title>
     <script type="text/javascript">
+
+    var frasi = [
+      "Non dire gatto...",
+      "Non dire mulo...",
+      "Non dire casaburi...",
+      "Non dire cambusa...",
+      "Vieni con noi, dai Barbapapa'"
+    ];
+
     var canvas, ctx, flag = false,
         prevX = 0,
         currX = 0,
@@ -82,12 +94,41 @@
             }
         }
     }
+
+    function makeDiv(){
+
+
+       var color = '#'+ Math.round(0xffffff * Math.random()).toString(16);
+       $newdiv = $('<div/>').css({
+           'font-color': color
+       });
+
+       $newdiv.text(frasi[Math.floor(frasi.length*Math.random())])
+       var posx = (Math.random() * ($(document).width() /*- divsize */)).toFixed();
+       var posy = (Math.random() * ($(document).height() /*- divsize*/)).toFixed();
+
+       $newdiv.css({
+           'position':'absolute',
+           'left':posx+'px',
+           'top':posy+'px',
+           'display':'none',
+           'z-index' : -100
+       }).appendTo( 'body' ).fadeIn(1000).delay(7000).fadeOut(1000);
+
+       return ident;
+    };
     </script>
+  </head>
     <body onload="init()">
       <div style="width:100%; display: flex;justify-content: center;">
         <img src="eas.jpg" alt="" style="z-index: 0;width: 800px; position: absolute">
-                <canvas id="can" width="365" height="250" style="position: relative; border:2px solid #a76934; margin-top: 174px"></canvas>
+                <canvas id="can" width="365" height="250" style="position: relative; border:2px solid #a76934; margin-top: 174px;z-index: 20"></canvas>
         </img>
       </div>
+    <script type="text/javascript">
+      setInterval(function() {
+          makeDiv()
+        }, 500);
+    </script>
     </body>
  </html>
